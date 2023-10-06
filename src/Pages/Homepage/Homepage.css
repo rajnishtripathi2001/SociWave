@@ -1,0 +1,9 @@
+.mar{
+    margin-top: 20px;
+    
+}
+
+.socio-cont{
+    display: flex;
+    justify-content: space-evenly;
+}

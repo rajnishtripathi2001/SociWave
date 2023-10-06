@@ -1,0 +1,29 @@
+.lastRem{
+    background-color: #3b71ca;
+    color: rgb(235, 233, 233);
+    height: 300px;
+    text-align: center;
+    padding: 40px 25px;
+}
+
+.lastRem h1{
+    font-weight: 700;
+   
+}
+
+.lastRem p{
+    font-weight: 450;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.lastRem button{
+    border-radius: 25px;
+    width: 250px;
+    padding: 0.5%;
+    border: none;
+    background-color: #5ee78d;
+    color: white;
+    font-weight:900;
+    font-size: 20px;
+}
