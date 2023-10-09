@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+body {
+  height: 100vh;
+  background-size: 400%;
+}
+.error-page {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4efef;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 1);
+}
+
+.error-page .content {
+  max-width: 500px;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 15vw;
+  line-height: 1em;
+}
+
+.content h1::after {
+  position: absolute;
+  content: attr(data-text);
+  top: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-repeating-linear-gradient(
+    -45deg,
+    #71b7e6,
+    #69a6ce,
+    #b98acc,
+    #ee8176,
+    #b98acc,
+    #69a6ce,
+    #9b59b6
+  );
+  background-size: 300%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content h4 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  max-width: 500px;
+}
+
+.content p {
+  font-size: 1.2em;
+  color: #0d0d0d;
+}
+
+.content .btns {
+  margin: 25px 0;
+  display: inline-flex;
+}
+
+.content .btns a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  border: 2px solid #69a6ce;
+  color: #69a6ce;
+  font-weight: 500;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.content .btns a:hover {
+  color: #fff;
+  background-color: #69a6ce;
+}

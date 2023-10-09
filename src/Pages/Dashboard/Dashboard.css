@@ -1,0 +1,151 @@
+.content-area {
+  margin-top: 12vh;
+  padding: 2px;
+  margin-bottom: 20vh;
+}
+
+.rowD {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  background-color: rgb(254, 254, 254);
+  box-shadow: 0 0 5px rgb(147, 147, 147);
+  margin: 10px;
+  width: 500px;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hmod{
+    height: fit-content;
+}
+
+.box .icn{
+    background-color: #3b71ca;
+    color: white;
+    font-size: 40px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.text-part h6{
+    font-size: 15px;
+}
+
+.text-part h4{
+    font-size: 20px;
+}
+
+.text-part p{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.text-part p span{
+    font-size: 16px;
+    font:bolder;
+}
+
+.action-area button{
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    padding: 0 14px;
+    border: none;
+    background-color: #5ee78d;
+    color: white;
+    text-shadow: 0 1px 3px rgba(87,160,254,.4);
+}
+
+.order-section{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+
+
+.order-section button{
+    border-radius: 10px;
+    width: fit-content;
+    height: 40px;
+    margin: 10px auto;
+}
+
+.qwety{
+    width: 100%;
+    background-color: rgb(236, 235, 235);
+    padding: 5px;
+    border-radius: 7px;
+    box-shadow: 0 0 3px black;
+    margin-bottom: 5px;
+}
+
+
+.wallet-item{
+    display: flex;
+    width: 80%;
+}
+
+.text-part{
+    margin-right: 10px;
+}
+
+
+@media screen and (max-width:1070px) {
+    .rowD{
+        justify-content: space-around;
+    }
+
+    .box{
+        width: calc(900px - 41%);
+    }
+
+}
+
+@media screen and (max-width:1015px) {
+    .box{
+        justify-content: space-between;
+    }
+
+    .text-part{
+        margin: 0 auto 0 6%;
+    }
+
+}
+
+
+
+@media screen and (max-width:421px) {
+    .box{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-part{
+        margin: 10% auto 0 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .wallet-item{
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .order-section{
+        text-align: left;
+    }
+
+    .action-area button{
+        width: 50%;
+    }
+    
+}
