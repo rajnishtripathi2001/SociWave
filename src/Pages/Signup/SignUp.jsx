@@ -1,98 +1,90 @@
-import React from 'react';
-import './SignUp.css'
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBCheckbox,
-  MDBIcon
-}
-from 'mdb-react-ui-kit';
+import React, { useState } from "react";
+import "./SignUp.css";
+import { Link,useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function SignUp() {
+export default function Signup() {
+
+  const navigate = useNavigate();
+
+  const [post, setPost] = useState({
+      fname: "",
+      lname: "",
+      email: "",
+      password: "",
+      _id: Date.now()
+  })
+  
+  const handleinput=(event)=>{
+    setPost({...post,[event.target.name]:event.target.value})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post("http://localhost:5000/addUser", post)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+      navigate("/");
+  };
+
   return (
-    <MDBContainer fluid className='p-4 background-radial-gradient overflow-hidden'>
+    <>
+      <div className="form-wrapper">
+        <header className="register">
+          <h2>Register</h2>
+        </header>
 
-      <MDBRow>
+        <form onSubmit={(e) => {handleSubmit(e);}}>
+          <div className="multi-inputs">
+            <div className="form-row">
+              <input type="text" name="fname" onChange={handleinput} required />
+              <span className="placeholder">First Name</span>
+            </div>
 
-        <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
+            <div className="form-row">
+              <input type="text" name="lname" onChange={handleinput} required />
+              <span className="placeholder">Last Name</span>
+            </div>
+          </div>
 
-          <h1 className="my-5 display-3 fw-bold ls-tight px-3" style={{color: 'hsl(218, 81%, 95%)'}}>
-            The best offer <br />
-            <span style={{color: 'hsl(218, 81%, 75%)'}}>for your business</span>
-          </h1>
+          <div className="form-row icon-input">
+            <span className="icon">
+              <i className="fas fa-envelope" />
+            </span>
+            <input type="email" name="email" onChange={handleinput} required />
+            <span className="placeholder">Email</span>
+          </div>
 
-          <p className='px-3' style={{color: 'hsl(218, 81%, 85%)'}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-            quibusdam tempora at cupiditate quis eum maiores libero
-            veritatis? Dicta facilis sint aliquid ipsum atque?
-          </p>
+          <div className="form-row icon-input">
+            <span className="icon">
+              <i className="fas fa-key" />
+            </span>
+            <input type="text" name="password" onChange={handleinput} required />
+            <span className="placeholder">Password</span>
+          </div>
 
-        </MDBCol>
+          <div className="terms-conditions">
+            <input id="term" type="checkbox" required/>
+            <label htmlFor="terms">
+              I agree with the <strong>Terms and Conditions</strong>
+            </label>
+          </div>
 
-        <MDBCol md='6' className='position-relative'>
+          <div className="form-row">
+            <button type="submit">Register</button>
+          </div>   
 
-          <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
-
-          <MDBCard className='my-5 bg-glass'>
-            <MDBCardBody className='p-5'>
-
-              <MDBRow>
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
-                </MDBCol>
-
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='Last name' id='form2' type='text'/>
-                </MDBCol>
-              </MDBRow>
-
-              <MDBInput wrapperClass='mb-4' label='Email' id='form3' type='email'/>
-              <MDBInput wrapperClass='mb-4' label='Password' id='form4' type='password'/>
-
-              <div className='d-flex justify-content-center mb-4'>
-                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
-              </div>
-
-              <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
-
-              <div className="text-center">
-
-                <p>or sign up with:</p>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='facebook-f' size="sm"/>
-                </MDBBtn>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='twitter' size="sm"/>
-                </MDBBtn>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='google' size="sm"/>
-                </MDBBtn>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='github' size="sm"/>
-                </MDBBtn>
-
-              </div>
-
-            </MDBCardBody>
-          </MDBCard>
-
-        </MDBCol>
-
-      </MDBRow>
-
-    </MDBContainer>
+          <div className="signinbox">
+            Already a Member ? <Link to="/">Sign In</Link>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
-
-export default SignUp;
