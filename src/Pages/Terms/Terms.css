@@ -1,0 +1,39 @@
+.term{
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+}
+
+.term h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.term p{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.term li{
+    margin-left: 10px;
+}
+
+.term b{
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.term span{
+    color: #3b71ca;
+}

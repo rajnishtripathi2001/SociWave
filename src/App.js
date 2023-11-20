@@ -5,6 +5,10 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import SignUp from './Pages/Signup/SignUp';
 import Error from "./Pages/Error/Error";
 import Payment from "./Pages/Payment/Payment";
+import Terms from "./Pages/Terms/Terms";
+import FAQ from "./Pages/FAQ/FAQ";
+import About from "./Pages/About/About";
+import Contact from "./Pages/Contact/Contact";
 
 function App() {
 
@@ -18,6 +22,10 @@ function App() {
       <Route exact path="/dashboard" element={<Dashboard/> } />
       <Route exact path="/register" element={<SignUp/>}/>
       <Route exact path="/addMoney" element={<Payment/>}/>
+      <Route exact path="/terms" element={<Terms/>} />
+      <Route exact path="/faq" element={<FAQ/>} />
+      <Route exact path="/about" element={<About/>} />
+      <Route exact path="/contact" element={<Contact/>} />
       <Route path="*" element={<Error/>} />
 
     </Routes>   
