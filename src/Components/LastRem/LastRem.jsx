@@ -2,6 +2,8 @@ import React from "react";
 import './LastRem.css';
 
 export default function LastRem() {
+
+
   return (
     <section className="lastRem">
       <h1>Ready to Get Started?</h1>
@@ -9,7 +11,7 @@ export default function LastRem() {
         All user information is kept 100% private and will <b>NOT</b> be shared with
         anyone. Always remember, you are protected with <br /><b>SociWave</b>
       </p>
-      <button>Get Started Now</button>
+      <button><a href="#1st">Get Started Now</a></button>
     </section>
   );
 }

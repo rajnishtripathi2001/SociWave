@@ -62,13 +62,13 @@ function Homepage() {
   };
 
   return (
-    <>
+    <div id="1st">
       <Navbar />
       <h2 style={{ marginTop: "120px", textAlign: "center" }}>
         Unlock Your Social Media Influence <br />
         with SociWave
       </h2>
-      <MDBContainer fluid className="p-3 mar">
+      <MDBContainer fluid className="p-3 mar" >
         <MDBRow>
           <MDBCol col="10" md="6">
             <img
@@ -133,7 +133,7 @@ function Homepage() {
 
             <h6>
               <p style={{ marginTop: "50px", textAlign: "center" }}>
-                Do not have an account? <a href="#qw">Sign Up</a>
+                Do not have an account? <a href="/register">Sign Up</a>
               </p>
             </h6>
           </MDBCol>
@@ -143,7 +143,7 @@ function Homepage() {
       <Social />
       <LastRem />
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -8,11 +8,10 @@ export default function Hero() {
         <q>All-In-One</q> <br /> Social Media Marketing tool you need!
       </h2>
       <div className="service-container">
-          <div className="one">Live chat Support</div>
           <div className="one">Easy to place system for bulk orders</div>
-          <div className="one">Accept payments with PayPal or others</div>
-          <div className="one">Easy to use multiple services All-In-One</div>
-          <div className="one">Full API Integration</div>
+          <div className="one">Accept payments with UPI or others</div>
+          <div className="one">Easy to use multiple services</div>
+          <div className="one">Digital Wallet for Seamless Transactions</div>
           
       </div>
     </section>
