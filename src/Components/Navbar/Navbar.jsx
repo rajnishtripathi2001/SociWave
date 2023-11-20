@@ -17,6 +17,10 @@ export default function Navbar() {
         right: menuOpen ? '0px' : '-350px'
     };
 
+    const logout = () => {
+      localStorage.clear();
+      window.location.href = "/";
+    };
 
 
   return (
@@ -33,12 +37,15 @@ export default function Navbar() {
           <li><a href="#contact">Contact</a></li>
           <li><a href="#clients">FAQ</a></li>
           <li><a href="#services">Terms</a></li>
+          <button onClick={logout}  >Log Out</button>
         </div>
          
         </ul>
         <i class="fa-solid fa-bars fast" onClick={openMenu}></i>
 
       </div>
+
+      
     </div>
   );
 }
