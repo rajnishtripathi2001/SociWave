@@ -38,6 +38,16 @@
   transition: 0.5s;
   transform: scale(1.1);
 }
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+
 .innerdiv {
   display: flex;
   justify-content: space-between;

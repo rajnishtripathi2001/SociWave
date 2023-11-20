@@ -22,6 +22,7 @@ export default function Navbar() {
       window.location.href = "/";
     };
 
+    const status = localStorage.getItem("loginStatus");
 
   return (
     <div className="nav-container">
@@ -37,7 +38,7 @@ export default function Navbar() {
           <li><a href="#contact">Contact</a></li>
           <li><a href="#clients">FAQ</a></li>
           <li><a href="#services">Terms</a></li>
-          <button onClick={logout}  >Log Out</button>
+          <button onClick={logout} className={status ? "show" : "hide"}  >Log Out</button>
         </div>
          
         </ul>
