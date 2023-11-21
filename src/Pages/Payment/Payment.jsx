@@ -25,7 +25,7 @@ export default function Payment() {
       key: key,
       amount: data.amount,
       currency: "INR",
-      name: "Soci Wave",
+      name: "SociWave",
       description: "Social Media Marketing Service",
       image: "https://static.tnn.in/photo/96295917/96295917.jpg",
       order_id: data.id,

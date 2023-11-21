@@ -239,7 +239,7 @@ export default function Dashboard() {
       };
 
       axios
-        .put("https://sociwave-backend-production.up.railway.app//updateWallet", { trans }) //"http://localhost:5000/updateWallet"
+        .put("https://sociwave-backend-production.up.railway.app/updateWallet", { trans }) //"http://localhost:5000/updateWallet"
         .then(() => {
           console.log("Data sent");
         })
