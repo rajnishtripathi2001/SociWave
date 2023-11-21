@@ -188,7 +188,7 @@ export default function Dashboard() {
     const id = localStorage.getItem("_id");
 
     axios
-      .get("http://localhost:5000/wallet", { params: { id } })
+      .get("https://sociwave-backend-production.up.railway.app/wallet", { params: { id } }) //"http://localhost:5000/wallet"
       .then((res) => {
         setBalance(res.data.balance);
         setSpending(res.data.spending);
@@ -199,7 +199,7 @@ export default function Dashboard() {
 
 
       axios
-      .get("http://localhost:5000/global")
+      .get("https://sociwave-backend-production.up.railway.app/global") //"http://localhost:5000/global"
       .then((res)=>{
         setTotalOrder(res.data.G.totalOrders);
       })
@@ -239,7 +239,7 @@ export default function Dashboard() {
       };
 
       axios
-        .put("http://localhost:5000/updateWallet", { trans })
+        .put("https://sociwave-backend-production.up.railway.app//updateWallet", { trans }) //"http://localhost:5000/updateWallet"
         .then(() => {
           console.log("Data sent");
         })

@@ -22,7 +22,7 @@ export default function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:5000/addUser", post)
+    axios.post("https://sociwave-backend-production.up.railway.app/addUser", post) // "http://localhost:5000/addUser"
       .then((res) => {
         console.log(res.data);
       })

@@ -15,8 +15,8 @@ export default function Payment() {
   const addMoney = async (e) => {
     const {
       data: { key },
-    } = await axios.get("http://localhost:5000/getkey");
-    const { data } = await axios.post("http://localhost:5000/order", {
+    } = await axios.get("https://sociwave-backend-production.up.railway.app/getkey"); //"http://localhost:5000/getkey"
+    const { data } = await axios.post("https://sociwave-backend-production.up.railway.app/order", { // "http://localhost:5000/order"
       amount,
       userID,
     });
@@ -29,7 +29,7 @@ export default function Payment() {
       description: "Social Media Marketing Service",
       image: "https://static.tnn.in/photo/96295917/96295917.jpg",
       order_id: data.id,
-      callback_url: "http://localhost:5000/PaymentVerification",
+      callback_url: "https://sociwave-backend-production.up.railway.app/PaymentVerification", // "http://localhost:5000/PaymentVerification"
       prefill: {
         name: localStorage.getItem("fname"),
         email: localStorage.getItem("email"),

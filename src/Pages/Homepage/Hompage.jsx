@@ -37,7 +37,7 @@ function Homepage() {
     e.preventDefault();
 
     await axios
-      .get("http://localhost:5000/users")
+      .get("https://sociwave-backend-production.up.railway.app/users") //"http://localhost:5000/users"
       .then((res) => {
         userList = res.data.users;
       })
