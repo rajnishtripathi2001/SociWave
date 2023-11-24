@@ -185,7 +185,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    const id = localStorage.getItem("_id");
+    const id = localStorage.getItem("id");
 
     axios
       .get("https://sociwave-backend-production.up.railway.app/wallet", { params: { id } }) //"http://localhost:5000/wallet"
