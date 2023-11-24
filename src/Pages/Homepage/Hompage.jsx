@@ -21,7 +21,12 @@ import axios from "axios";
 function Homepage() {
   const navigate = useNavigate();
 
-  var userList = [];
+  // const[data, setData] = useState({
+  //   id: "",
+  //   fname: "",
+  //   lname: "",
+  //   email: ""
+  // })
 
   const [user, setUser] = useState({
     email: "",
@@ -37,28 +42,24 @@ function Homepage() {
     e.preventDefault();
 
     await axios
-      .get("https://sociwave-backend-production.up.railway.app/users") //"http://localhost:5000/users"
+      .post("https://sociwave-backend-production.up.railway.app/user", user) //"http://localhost:5000/user"
       .then((res) => {
-        userList = res.data.users;
+        if(res.data.status === "success"){
+          localStorage.setItem("fname", res.data.user.fname);
+          localStorage.setItem("lname", res.data.user.lname);
+          localStorage.setItem("email", res.data.user.email);
+          localStorage.setItem("id", res.data.user.id);
+          localStorage.setItem("loginStatus", "true");
+          navigate("/dashboard");
+        }
+        else{
+          alert("Invalid Credentials");
+        }      
       })
       .catch((error) => {
         console.log(error);
       });
-
-    for (let i = 0; i < userList.length; i++) {
-      if (
-        user.email === userList[i].email &&
-        user.password === userList[i].password
-      ) {
-        localStorage.setItem("fname", userList[i].fname);
-        localStorage.setItem("lname", userList[i].lname);
-        localStorage.setItem("email", userList[i].email);
-        localStorage.setItem("_id", userList[i]._id);
-        localStorage.setItem("loginStatus", "true");
-        userList = [];
-        navigate("/dashboard");
-      }
-    }
+ 
   };
 
   return (
