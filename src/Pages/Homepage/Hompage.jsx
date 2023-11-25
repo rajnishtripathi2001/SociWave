@@ -51,6 +51,7 @@ function Homepage() {
           localStorage.setItem("id", res.data.user.id);
           localStorage.setItem("loginStatus", "true");
           navigate("/dashboard");
+          // console.log(res.data.user);
         }
         else{
           alert("Invalid Credentials");

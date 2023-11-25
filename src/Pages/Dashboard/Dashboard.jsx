@@ -18,8 +18,6 @@ import axios from "axios";
 export default function Dashboard() {
   const navigate = useNavigate();
 
-
-
   const [iconsActive, setIconsActive] = useState("tab1");
 
   const [service, setService] = useState("instaLike");
@@ -188,7 +186,7 @@ export default function Dashboard() {
     const id = localStorage.getItem("id");
 
     axios
-      .get("https://sociwave-backend-production.up.railway.app/wallet", { params: { id } }) //"http://localhost:5000/wallet"
+      .get("https://sociwave-backend-production.up.railway.app/wallet", {params: { id }}) //"http://localhost:5000/wallet "
       .then((res) => {
         setBalance(res.data.balance);
         setSpending(res.data.spending);
