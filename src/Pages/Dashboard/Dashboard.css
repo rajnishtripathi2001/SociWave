@@ -25,6 +25,13 @@
 
 .hmod{
     height: fit-content;
+    flex-direction: column;
+}
+
+.hmod li{
+    text-align: left;
+    margin: 10px 0;
+
 }
 
 .box .icn{

@@ -27,7 +27,7 @@ export default function Dashboard() {
   const [balance, setBalance] = useState(0);
   const [spending, setSpending] = useState(0);
 
-  const [totalOrder,setTotalOrder] = useState();
+  const [totalOrder, setTotalOrder] = useState();
 
   const handleIconsClick = (value) => {
     if (value === iconsActive) {
@@ -186,7 +186,7 @@ export default function Dashboard() {
     const id = localStorage.getItem("id");
 
     axios
-      .get("https://sociwave-backend.up.railway.app/wallet", {params: {id}}) //"http://localhost:5000/wallet"
+      .get("https://sociwave-backend.up.railway.app/wallet", { params: { id } }) //"http://localhost:5000/wallet"
       .then((res) => {
         setBalance(res.data.balance);
         setSpending(res.data.spending);
@@ -195,19 +195,14 @@ export default function Dashboard() {
         console.log(error);
       });
 
-
-      axios
+    axios
       .get("https://sociwave-backend.up.railway.app/global") //"http://localhost:5000/global"
-      .then((res)=>{
+      .then((res) => {
         setTotalOrder(res.data.G.totalOrders);
       })
-      .catch((err)=>{
-        console.log("err in fetching global data")
-      })
-
-
-
-
+      .catch((err) => {
+        console.log("err in fetching global data");
+      });
   }, []);
 
   const userLink = (e) => {
@@ -215,39 +210,37 @@ export default function Dashboard() {
   };
 
   const buyService = () => {
-   
     const billAmnt = price + (price * 18) / 100;
 
     if (billAmnt > balance) {
       alert("You Wallet Balance is Low");
-    } 
-    else {
-
-      const id = localStorage.getItem("id");
-
-      const trans = {
-        id,
-        link,
-        service,
-        price,
-        balance: balance - billAmnt,
-        spending: spending + billAmnt,
-        billAmnt : billAmnt,
-        userEmail : localStorage.getItem('email'),
-      };
-
-      axios
-        .put("https://sociwave-backend.up.railway.app/updateWallet", { trans }) //"http://localhost:5000/updateWallet"
-        .then(() => {
-          console.log("Data sent");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      return;
     }
+
+    const id = localStorage.getItem("id");
+
+    const trans = {
+      id,
+      link,
+      service,
+      price,
+      balance: balance - billAmnt,
+      spending: spending + billAmnt,
+      billAmnt: billAmnt,
+      userEmail: localStorage.getItem("email"),
+    };
+
+    axios
+      .put("https://sociwave-backend.up.railway.app/updateWallet", { trans }) //"http://localhost:5000/updateWallet"
+      .then(() => {
+        console.log("Data sent");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    navigate("/");
   };
-
-
 
   return (
     <section>
@@ -305,73 +298,99 @@ export default function Dashboard() {
 
                 <MDBTabsContent style={{ width: "100%" }}>
                   <MDBTabsPane show={iconsActive === "tab1"}>
-                    <form>
-                      <b>Services</b>
-                      <select
-                        id="services"
-                        name="services"
-                        className="qwety"
-                        value={service}
-                        onChange={(e) => setService(e.target.value)}
-                      >
-                        <option value="instaLike">Instagram Likes</option>
-                        <option value="instaComm">Instagram Comments</option>
-                        <option value="instaFollow">Instagram Followers</option>
-                        <option value="YtLike">Youtube Likes</option>
-                        <option value="YtComm">Youtube Comments</option>
-                        <option value="YtSubs">Youtube Subscribers</option>
-                      </select>
+                    <b>Services</b>
+                    <select
+                      id="services"
+                      name="services"
+                      className="qwety"
+                      value={service}
+                      onChange={(e) => setService(e.target.value)}
+                    >
+                      <option value="instaLike">Instagram Likes</option>
+                      <option value="instaComm">Instagram Comments</option>
+                      <option value="instaFollow">Instagram Followers</option>
+                      <option value="YtLike">Youtube Likes</option>
+                      <option value="YtComm">Youtube Comments</option>
+                      <option value="YtSubs">Youtube Subscribers</option>
+                    </select>
 
-                      <b>Package</b>
-                      <select
-                        id="package"
-                        name="package"
-                        className="qwety"
-                        required
-                        onChange={(e) =>
-                          setPrice(parseFloat(e.target.value + ".00"))
+                    <b>Package</b>
+                    <select
+                      id="package"
+                      name="package"
+                      className="qwety"
+                      required
+                      onChange={(e) =>
+                        setPrice(parseFloat(e.target.value + ".00"))
+                      }
+                    >
+                      {packages.map((pack) => {
+                        if (pack.service === service) {
+                          return (
+                            <option value={pack.value}>{pack.name}</option>
+                          );
                         }
+                      })}
+                    </select>
+
+                    <b>Price</b>
+                    <label className="qwety">{price}</label>
+
+                    <b>Link</b>
+                    <input
+                      type="text"
+                      placeholder="Account Must be Public"
+                      className="qwety"
+                      name="link"
+                      id="link"
+                      onChange={userLink}
+                      required
+                    />
+
+                    <b>You Will Pay</b>
+                    <label className="qwety">
+                      {price + (price * 18) / 100}
+                    </label>
+
+                    <input type="checkbox" required name="agree" id="agree" />
+                    <span>
+                      Yes, i have confirmed the{" "}
+                      <a
+                        href="/terms"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        {packages.map((pack) => {
-                          if (pack.service === service) {
-                            return (
-                              <option value={pack.value}>{pack.name}</option>
-                            );
-                          }
-                        })}
-                      </select>
-
-                      <b>Price</b>
-                      <label className="qwety">{price}</label>
-
-                      <b>Link</b>
-                      <input
-                        type="text"
-                        placeholder="Account Must be Public"
-                        className="qwety"
-                        name="link"
-                        id="link"
-                        onChange={userLink}
-                        required
-                      />
-
-                      <b>You Will Pay</b>
-                      <label className="qwety">
-                        {price + (price * 18) / 100}
-                      </label>
-
-                      <input type="checkbox" required name="agree" id="agree" />
-                      <span>Yes, i have confirmed the Terms & Conditions</span>
-                      <br />
-                      <button type="submit" onClick={buyService}>Place Order</button>
-                    </form>
+                        Terms & Conditions
+                      </a>
+                    </span>
+                    <br />
+                    <button onClick={buyService}>Place Order</button>
                   </MDBTabsPane>
                   <MDBTabsPane show={iconsActive === "tab2"}>
                     Very Soon
                   </MDBTabsPane>
                 </MDBTabsContent>
               </div>
-              <div className="box hmod">news</div>
+              <div className="box hmod">
+                <h5>Important Instructions</h5>
+                <ol>
+                  <li>
+                    <b>Enter Correct Link</b> : Correct public post link needed
+                    for service. Wrong link or private account won't qualify.
+                  </li>
+                  <li>
+                    <b>Payment</b> : You will pay the amount shown in the price
+                    section. There is no extra charge.
+                  </li>
+                  <li>
+                    <b>Refund</b> : There is no refund policy. Once you have
+                    placed the order, you cannot cancel it.
+                  </li>
+                  <li>
+                    <b>Read Terms & Conditions</b> : You must read the terms and conditions before placing the order. 
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
           <Footer />
