@@ -10,13 +10,19 @@ export default function Payment() {
     setAmount(e.target.value);
   };
 
-  const userID = localStorage.getItem("_id");
+  const userID = localStorage.getItem("id");
 
   const addMoney = async (e) => {
+
+    if (amount < 100 || amount > 2000) {
+      alert("Please enter amount between ₹100 and ₹2000");
+      return;
+    }
+
     const {
       data: { key },
-    } = await axios.get("https://sociwave-backend-production.up.railway.app/getkey"); //"http://localhost:5000/getkey"
-    const { data } = await axios.post("https://sociwave-backend-production.up.railway.app/order", { // "http://localhost:5000/order"
+    } = await axios.get("https://sociwave-backend.up.railway.app/getkey"); //"http://localhost:5000/getkey"
+    const { data } = await axios.post("https://sociwave-backend.up.railway.app/order", { // "http://localhost:5000/order"
       amount,
       userID,
     });
@@ -29,7 +35,7 @@ export default function Payment() {
       description: "Social Media Marketing Service",
       image: "https://static.tnn.in/photo/96295917/96295917.jpg",
       order_id: data.id,
-      callback_url: "https://sociwave-backend-production.up.railway.app/PaymentVerification", // "http://localhost:5000/PaymentVerification"
+      callback_url: "https://sociwave-backend.up.railway.app/PaymentVerification", // "http://localhost:5000/PaymentVerification"
       prefill: {
         name: localStorage.getItem("fname"),
         email: localStorage.getItem("email"),
@@ -54,8 +60,9 @@ export default function Payment() {
         <label>Amount(₹)</label>
         <input
           type="number"
-          placeholder="Enter the amount"
+          placeholder="min:₹100 and max:₹2000"
           onChange={handleInput}
+          
         />
         <button onClick={addMoney}>Add Money </button>
       </div>

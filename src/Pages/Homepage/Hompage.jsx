@@ -21,13 +21,6 @@ import axios from "axios";
 function Homepage() {
   const navigate = useNavigate();
 
-  // const[data, setData] = useState({
-  //   id: "",
-  //   fname: "",
-  //   lname: "",
-  //   email: ""
-  // })
-
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -42,7 +35,7 @@ function Homepage() {
     e.preventDefault();
 
     await axios
-      .post("https://sociwave-backend-production.up.railway.app/user", user) //"http://localhost:5000/user"
+      .post("https://sociwave-backend.up.railway.app/getUser", user) //"http://localhost:5000/getUser"
       .then((res) => {
         if(res.data.status === "success"){
           localStorage.setItem("fname", res.data.user.fname);

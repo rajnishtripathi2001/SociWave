@@ -186,7 +186,7 @@ export default function Dashboard() {
     const id = localStorage.getItem("id");
 
     axios
-      .get("https://sociwave-backend-production.up.railway.app/wallet", {params: { id }}) //"http://localhost:5000/wallet "
+      .get("https://sociwave-backend.up.railway.app/wallet", {params: {id}}) //"http://localhost:5000/wallet"
       .then((res) => {
         setBalance(res.data.balance);
         setSpending(res.data.spending);
@@ -197,7 +197,7 @@ export default function Dashboard() {
 
 
       axios
-      .get("https://sociwave-backend-production.up.railway.app/global") //"http://localhost:5000/global"
+      .get("https://sociwave-backend.up.railway.app/global") //"http://localhost:5000/global"
       .then((res)=>{
         setTotalOrder(res.data.G.totalOrders);
       })
@@ -223,7 +223,7 @@ export default function Dashboard() {
     } 
     else {
 
-      const id = localStorage.getItem("_id");
+      const id = localStorage.getItem("id");
 
       const trans = {
         id,
@@ -237,7 +237,7 @@ export default function Dashboard() {
       };
 
       axios
-        .put("https://sociwave-backend-production.up.railway.app/updateWallet", { trans }) //"http://localhost:5000/updateWallet"
+        .put("https://sociwave-backend.up.railway.app/updateWallet", { trans }) //"http://localhost:5000/updateWallet"
         .then(() => {
           console.log("Data sent");
         })
