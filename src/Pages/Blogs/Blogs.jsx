@@ -1,11 +1,12 @@
 import React from 'react'
+import './Blogs.css'
 import Navbar from '../../Components/Navbar/Navbar'
 
-export default function About() {
+
+export default function Blogs() {
   return (
     <section>
-      <Navbar/>
-      About Page
+        <Navbar/>
     </section>
   )
 }

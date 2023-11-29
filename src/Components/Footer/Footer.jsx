@@ -5,6 +5,7 @@ export default function Footer() {
     const footerStyle = {
         color: "white",
         backgroundColor: "gray",
+        marginTop: "auto",
         padding: "15px",
         fontFamily: "Arial",
         display:"flex",

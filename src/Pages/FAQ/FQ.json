@@ -1,0 +1,54 @@
+{
+    "data":[
+        {
+            "heading":"1. What services does SociWave offer?",
+            "description":"SociWave provides a range of social media marketing services,including Instagram likes, comments, followers, as well as YouTube likes, comments, and subscribers.",
+            "collapse":"collapseOne"
+        },
+        {
+            "heading":"2. How does the personal wallet system work?",
+            "description":"Our personal wallet system allows users to deposit funds into their accounts on SociWave. These funds can then be used to purchase services on the website. The personal wallet is a convenient and secure way to manage transactions.",
+            "collapse":"collapseTwo"
+        },
+        {
+            "heading":"3. How do I create an account on SociWave?",
+            "description":"To create an account, click on the Sign Up button and follow the registration process. You will need to provide accurate information during registration. Once your account is created, you can access various features on our platform.",
+            "collapse":"collapseThree"
+        },
+        {
+            "heading":"4. Are the funds in my personal wallet refundable?",
+            "description":"No, funds deposited into your personal wallet are non-refundable. Please ensure that you review your choices carefully before making a deposit.",
+            "collapse":"collapseFour"
+        },
+        {
+            "heading":"5. What payment methods are accepted?",
+            "description":"We accept payments through UPI and Other Methods. You can find the available payment methods in the payment section of your account.",
+            "collapse":"collapseFive"
+        },
+        {
+            "heading":"6. How long does it take for services to be delivered?",
+            "description":"The delivery time for services may vary. It depends on the type and quantity of the service you have purchased. Average delivery time is 48 hours.",
+            "collapse":"collapseSix"
+        },
+        {
+            "heading":"7. Is it safe to use SociWave services?",
+            "description":"Yes, SociWave takes the privacy and security of your information seriously. We employ industry-standard security measures to protect your data. Additionally, we do not require your social media account passwords to provide our services.",
+            "collapse":"collapseSeven"
+        },
+        {
+            "heading":"8. Can I use SociWave services for any social media account?",
+            "description":"While our services are designed to work with a variety of social media accounts, it's important to review and comply with the terms of service of each platform. Using our services in violation of these terms may result in consequences for your social media accounts.",
+            "collapse":"collapseEight"
+        },
+        {
+            "heading":"9. How can I contact customer support?",
+            "description":"For any questions or concerns, you can reach out to our customer support team at <span>sociwave.official@gmail.com</span>. We strive to respond promptly to inquiries and provide assistance as needed.",
+            "collapse":"collapseNine"
+        },
+        {
+            "heading":"10. What happens if I violate the terms of service?",
+            "description":"Violation of our terms of service may result in the termination or suspension of your account. Please review our terms and conditions for more details on user responsibilities and consequences of non-compliance.",
+            "collapse":"collapseTen"
+        }
+    ]
+}
