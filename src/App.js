@@ -12,7 +12,6 @@ import Blogs from "./Pages/Blogs/Blogs";
 
 function App() {
   const loginstatus = localStorage.getItem("loginStatus");
-  console.log(loginstatus);
 
   return (
     <div>

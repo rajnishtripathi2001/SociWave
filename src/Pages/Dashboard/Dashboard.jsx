@@ -232,19 +232,25 @@ export default function Dashboard() {
 
     axios
       .put("https://sociwave-backend.up.railway.app/updateWallet", { trans }) //"http://localhost:5000/updateWallet"
-      .then(() => {
+      .then((res) => {
         console.log("Data sent");
+        console.log(res);
       })
       .catch((error) => {
         console.log(error);
       });
 
     navigate("/");
+    
   };
+
+
+
+  const loginStatus = localStorage.getItem("loginStatus");
 
   return (
     <section>
-      {localStorage.getItem("loginStatus") ? (
+    {loginStatus ? (
         <>
           <Navbar />
           <div className="content-area">
@@ -330,6 +336,7 @@ export default function Dashboard() {
                             <option value={pack.value}>{pack.name}</option>
                           );
                         }
+                        return null;
                       })}
                     </select>
 
@@ -352,16 +359,9 @@ export default function Dashboard() {
                       {price + (price * 18) / 100}
                     </label>
 
-                    <input type="checkbox" required name="agree" id="agree" />
-                    <span>
-                      Yes, i have confirmed the{" "}
-                      <a
-                        href="/terms"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Terms & Conditions
-                      </a>
+                    <input type="checkbox" name="agree" id="agree" required />
+                    <span>Yes, i have confirmed the
+                      <a href="/terms" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
                     </span>
                     <br />
                     <button onClick={buyService}>Place Order</button>
