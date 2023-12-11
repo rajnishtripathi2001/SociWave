@@ -241,7 +241,7 @@ export default function Dashboard() {
       });
 
     navigate("/");
-    
+
   };
 
 
@@ -250,7 +250,7 @@ export default function Dashboard() {
 
   return (
     <section>
-    {loginStatus ? (
+      {loginStatus ? (
         <>
           <Navbar />
           <div className="content-area">
@@ -305,71 +305,71 @@ export default function Dashboard() {
                 <MDBTabsContent style={{ width: "100%" }}>
                   <MDBTabsPane show={iconsActive === "tab1"}>
                     <form>
-                    <b>Services</b>
-                    <select
-                      id="services"
-                      name="services"
-                      className="qwety"
-                      value={service}
-                      onChange={(e) => setService(e.target.value)}
-                    >
-                      <option value="instaLike">Instagram Likes</option>
-                      <option value="instaComm">Instagram Comments</option>
-                      <option value="instaFollow">Instagram Followers</option>
-                      <option value="YtLike">Youtube Likes</option>
-                      <option value="YtComm">Youtube Comments</option>
-                      <option value="YtSubs">Youtube Subscribers</option>
-                    </select>
+                      <b>Services</b>
+                      <select
+                        id="services"
+                        name="services"
+                        className="qwety"
+                        value={service}
+                        onChange={(e) => setService(e.target.value)}
+                      >
+                        <option value="instaLike">Instagram Likes</option>
+                        <option value="instaComm">Instagram Comments</option>
+                        <option value="instaFollow">Instagram Followers</option>
+                        <option value="YtLike">Youtube Likes</option>
+                        <option value="YtComm">Youtube Comments</option>
+                        <option value="YtSubs">Youtube Subscribers</option>
+                      </select>
 
-                    <b>Package</b>
-                    <select
-                      id="package"
-                      name="package"
-                      className="qwety"
-                      required
-                      onChange={(e) =>
-                        setPrice(parseFloat(e.target.value + ".00"))
-                      }
-                    >
-                      {packages.map((pack) => {
-                        if (pack.service === service) {
-                          return (
-                            <option value={pack.value}>{pack.name}</option>
-                          );
+                      <b>Package</b>
+                      <select
+                        id="package"
+                        name="package"
+                        className="qwety"
+                        required
+                        onChange={(e) =>
+                          setPrice(parseFloat(e.target.value + ".00"))
                         }
-                        return null;
-                      })}
-                    </select>
+                      >
+                        {packages.map((pack) => {
+                          if (pack.service === service) {
+                            return (
+                              <option value={pack.value}>{pack.name}</option>
+                            );
+                          }
+                          return null;
+                        })}
+                      </select>
 
-                    <b>Price</b>
-                    <label className="qwety">{price}</label>
+                      <b>Price</b>
+                      <label className="qwety">{price}</label>
 
-                    <b>Link</b>
-                    <input
-                      type="text"
-                      placeholder="Account Must be Public"
-                      className="qwety"
-                      name="link"
-                      id="link"
-                      onChange={userLink}
-                      required
-                    />
+                      <b>Link</b>
+                      <input
+                        type="text"
+                        placeholder="Account Must be Public"
+                        className="qwety"
+                        name="link"
+                        id="link"
+                        onChange={userLink}
+                        required
+                      />
 
-                    <b>You Will Pay</b>
-                    <label className="qwety">
-                      {price + (price * 18) / 100}
-                    </label>
+                      <b>You Will Pay</b>
+                      <label className="qwety">
+                        {price + (price * 18) / 100}
+                      </label>
 
-                    <input type="checkbox" name="agree" id="agree" required />
-                    <span>Yes, i have confirmed the
-                      <a href="/terms" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
-                    </span>
-                    <br />
-                    <button type="submit" onClick={buyService} >Place Order</button>
-                    
-                    </form>
+                      <input type="checkbox" name="agree" id="agree" required />
+                      <span>Yes, i have confirmed the
+                        <a href="/terms" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
+                      </span>
+                      <br />
+                      <button type="submit" onClick={buyService} >Place Order</button>
+                      
+                      </form>
                   </MDBTabsPane>
-                  
+
                   <MDBTabsPane show={iconsActive === "tab2"}>
                     Very Soon
                   </MDBTabsPane>
@@ -391,7 +391,8 @@ export default function Dashboard() {
                     placed the order, you cannot cancel it.
                   </li>
                   <li>
-                    <b>Read Terms & Conditions</b> : You must read the terms and conditions before placing the order. 
+                    <b>Read Terms & Conditions</b> : You must read the terms and
+                    conditions before placing the order.
                   </li>
                 </ol>
               </div>
