@@ -304,6 +304,7 @@ export default function Dashboard() {
 
                 <MDBTabsContent style={{ width: "100%" }}>
                   <MDBTabsPane show={iconsActive === "tab1"}>
+                    <form>
                     <b>Services</b>
                     <select
                       id="services"
@@ -364,8 +365,11 @@ export default function Dashboard() {
                       <a href="/terms" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
                     </span>
                     <br />
-                    <button onClick={buyService}>Place Order</button>
+                    <button type="submit" onClick={buyService} >Place Order</button>
+                    
+                    </form>
                   </MDBTabsPane>
+                  
                   <MDBTabsPane show={iconsActive === "tab2"}>
                     Very Soon
                   </MDBTabsPane>
