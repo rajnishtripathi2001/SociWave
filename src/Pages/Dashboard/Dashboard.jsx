@@ -22,7 +22,7 @@ export default function Dashboard() {
 
   const [service, setService] = useState("instaLike");
   const [price, setPrice] = useState(0.0);
-  const [link, setLink] = useState();
+  const [link, setLink] = useState("");
 
   const [balance, setBalance] = useState(0);
   const [spending, setSpending] = useState(0);
@@ -209,7 +209,8 @@ export default function Dashboard() {
     setLink(e.target.value);
   };
 
-  const buyService = () => {
+  const buyService = async (event) => {
+    event.preventDefault();
     const billAmnt = price + (price * 18) / 100;
 
     if (billAmnt > balance) {
@@ -230,8 +231,15 @@ export default function Dashboard() {
       userEmail: localStorage.getItem("email"),
     };
 
-    axios
-      .put("https://sociwave-backend.up.railway.app/updateWallet", { trans }) //"http://localhost:5000/updateWallet"
+    try{
+      await axios
+      .post("https://sociwave-backend.up.railway.app/updateWallet", {       //"http://localhost:5000/updateWallet"
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        trans,
+      }) 
       .then((res) => {
         console.log("Data sent");
         console.log(res);
@@ -240,12 +248,13 @@ export default function Dashboard() {
         console.log(error);
       });
 
-    navigate("/");
+    }
+    catch(err){
+      console.error('Error submitting form: ',err);
+    }
 
+    window.location.reload();
   };
-
-
-
   const loginStatus = localStorage.getItem("loginStatus");
 
   return (
@@ -304,15 +313,9 @@ export default function Dashboard() {
 
                 <MDBTabsContent style={{ width: "100%" }}>
                   <MDBTabsPane show={iconsActive === "tab1"}>
-                    <form>
+                    <form onSubmit={buyService}>
                       <b>Services</b>
-                      <select
-                        id="services"
-                        name="services"
-                        className="qwety"
-                        value={service}
-                        onChange={(e) => setService(e.target.value)}
-                      >
+                      <select id="services" name="services" className="qwety" required value={service} onChange={(e) => setService(e.target.value)}>
                         <option value="instaLike">Instagram Likes</option>
                         <option value="instaComm">Instagram Comments</option>
                         <option value="instaFollow">Instagram Followers</option>
@@ -322,15 +325,7 @@ export default function Dashboard() {
                       </select>
 
                       <b>Package</b>
-                      <select
-                        id="package"
-                        name="package"
-                        className="qwety"
-                        required
-                        onChange={(e) =>
-                          setPrice(parseFloat(e.target.value + ".00"))
-                        }
-                      >
+                      <select id="package" name="package" className="qwety" required onChange={(e) => setPrice(parseFloat(e.target.value + ".00")) }>
                         {packages.map((pack) => {
                           if (pack.service === service) {
                             return (
@@ -345,15 +340,7 @@ export default function Dashboard() {
                       <label className="qwety">{price}</label>
 
                       <b>Link</b>
-                      <input
-                        type="text"
-                        placeholder="Account Must be Public"
-                        className="qwety"
-                        name="link"
-                        id="link"
-                        onChange={userLink}
-                        required
-                      />
+                      <input type="text" placeholder="Account Must be Public" className="qwety" name="link" id="link" onChange={userLink} required/>
 
                       <b>You Will Pay</b>
                       <label className="qwety">
@@ -361,13 +348,11 @@ export default function Dashboard() {
                       </label>
 
                       <input type="checkbox" name="agree" id="agree" required />
-                      <span>Yes, i have confirmed the
-                        <a href="/terms" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
-                      </span>
+                      <span>Yes, i have confirmed the<a href="/terms" target="_blank">Terms & Conditions</a></span>
                       <br />
-                      <button type="submit" onClick={buyService} >Place Order</button>
+                      <button type="submit" >Place Order</button>
                       
-                      </form>
+                    </form>
                   </MDBTabsPane>
 
                   <MDBTabsPane show={iconsActive === "tab2"}>
