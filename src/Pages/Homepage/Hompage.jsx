@@ -35,25 +35,32 @@ function Homepage() {
     e.preventDefault();
 
     await axios
-      .post("https://sociwave-backend.up.railway.app/getUser", user) //"http://localhost:5000/getUser"
+      .post("https://sociwave-backend.up.railway.app/getUser", user)
       .then((res) => {
-        if(res.data.status === "success"){
+        if (res.data.status === "success") {
           localStorage.setItem("fname", res.data.user.fname);
           localStorage.setItem("lname", res.data.user.lname);
           localStorage.setItem("email", res.data.user.email);
           localStorage.setItem("id", res.data.user.id);
           localStorage.setItem("loginStatus", "true");
           navigate("/dashboard");
-          // console.log(res.data.user);
-        }
-        else{
+        } else {
           alert("Invalid Credentials");
-        }      
+        }
       })
       .catch((error) => {
         console.log(error);
       });
- 
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -63,7 +70,7 @@ function Homepage() {
         Unlock Your Social Media Influence <br />
         with SociWave
       </h2>
-      <MDBContainer fluid className="p-3 mar" >
+      <MDBContainer fluid className="p-3 mar">
         <MDBRow>
           <MDBCol col="10" md="6">
             <img
@@ -98,7 +105,7 @@ function Homepage() {
                 id="flexCheckDefault"
                 label="Remember me"
               />
-              <a href="!#">Forgot password?</a>
+              <a href="/resetPassword">Forgot password?</a>
             </div>
 
             <MDBBtn className="mb-4 w-100" size="lg" onClick={login}>
@@ -115,16 +122,34 @@ function Homepage() {
             </div>
 
             <div className="socio-cont">
-              <MDBBtn style={{ backgroundColor: "#3b5998" }} href="#">
+              <MDBBtn
+                style={{ backgroundColor: "#3b5998" }}
+                href="#"
+                onClick={openModal}
+              >
                 <MDBIcon fab icon="facebook-f" />
               </MDBBtn>
-              <MDBBtn style={{ backgroundColor: "#dd4b39" }} href="#">
+              <MDBBtn style={{ backgroundColor: "#dd4b39" }} href="#" onClick={openModal}>
                 <MDBIcon fab icon="google" />
               </MDBBtn>
-              <MDBBtn style={{ backgroundColor: "#333333" }} href="#">
+              <MDBBtn style={{ backgroundColor: "#333333" }} href="#" onClick={openModal}>
                 <MDBIcon fab icon="github" />
               </MDBBtn>
             </div>
+
+            {isModalOpen ? (
+              <div className="modal">
+                <div className="modal-content">
+                  <span className="close" onClick={closeModal}>
+                    &times;
+                  </span>
+                  <h2>
+                    Feature unavailable 
+                  </h2>
+                  <p>This service is temporarily unavailable..</p>
+                </div>
+              </div>
+            ) : null }
 
             <h6>
               <p style={{ marginTop: "50px", textAlign: "center" }}>

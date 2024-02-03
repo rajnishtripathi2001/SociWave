@@ -9,6 +9,7 @@ import FAQ from "./Pages/FAQ/FAQ";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
 import Blogs from "./Pages/Blogs/Blogs";
+import ForgotPasswd from "./Pages/ForgotPasswd/ForgotPasswd";
 
 function App() {
   const loginstatus = localStorage.getItem("loginStatus");
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/blogs" element={<Blogs />} />
+        <Route exact path="/resetPassword" element={<ForgotPasswd/>} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

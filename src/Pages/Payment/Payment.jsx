@@ -15,7 +15,7 @@ export default function Payment() {
   };
 
   const myFunc = () => {
-    axios.post("https://sociwave-backend.up.railway.app/order", { upi, name, email, id }) //http://localhost:5000/order
+    axios.post("https://sociwave-backend.up.railway.app/order", { upi, name, email, id })
     .then(() => {
       setMsg("Your Order is Placed Successfully and Wallet Balance will be updated soon");
     });

@@ -40,6 +40,7 @@ export default function Dashboard() {
   // const services = ["instaLike","instaComm","instaFollow","YtLike","YtComm","YtSubs"]
 
   const packages = [
+
     //Insta Likes
     {
       name: "Select a Package",
@@ -176,6 +177,29 @@ export default function Dashboard() {
       service: "YtSubs",
       value: 200,
     },
+
+    // YouTube VCS Packages
+    {
+      name: "Select a Package",
+      service: "YtVCS",
+      value: 0,
+    },
+
+    {
+      name: "100 Likes + 100 Comments + 100 Subscribers @ ₹500",
+      service: "YtVCS",
+      value: 500,
+    },
+    {
+      name: "200 Likes + 200 Comments + 200 Subscribers @ ₹1000",
+      service: "YtVCS",
+      value: 1000,
+    },
+    {
+      name: "1000 Likes + 1000 Comments + 1000 Subscribers @ ₹5000",
+      service: "YtVCS",
+      value: 5000,
+    },
   ];
 
   const addFund = () => {
@@ -186,7 +210,7 @@ export default function Dashboard() {
     const id = localStorage.getItem("id");
 
     axios
-      .get("https://sociwave-backend.up.railway.app/wallet", { params: { id } }) //"http://localhost:5000/wallet"
+      .get("https://sociwave-backend.up.railway.app/wallet", { params: { id } })
       .then((res) => {
         setBalance(res.data.balance);
         setSpending(res.data.spending);
@@ -196,7 +220,7 @@ export default function Dashboard() {
       });
 
     axios
-      .get("https://sociwave-backend.up.railway.app/global") //"http://localhost:5000/global"
+      .get("https://sociwave-backend.up.railway.app/global")
       .then((res) => {
         setTotalOrder(res.data.G.totalOrders);
       })
@@ -233,7 +257,7 @@ export default function Dashboard() {
 
     try{
       await axios
-      .post("https://sociwave-backend.up.railway.app/updateWallet", {       //"http://localhost:5000/updateWallet"
+      .post("https://sociwave-backend.up.railway.app/updateWallet", {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
@@ -322,6 +346,7 @@ export default function Dashboard() {
                         <option value="YtLike">Youtube Likes</option>
                         <option value="YtComm">Youtube Comments</option>
                         <option value="YtSubs">Youtube Subscribers</option>
+                        <option value="YtVCS">Youtube VCS Pack</option>
                       </select>
 
                       <b>Package</b>
