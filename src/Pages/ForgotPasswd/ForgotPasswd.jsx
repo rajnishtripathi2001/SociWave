@@ -35,7 +35,7 @@ export default function ForgotPasswd() {
     e.preventDefault();
     // genrate OTP at BAckend and store in tempOTP
     axios
-      .post("http://localhost:5000/generateOTP", { email })
+      .post("https://sociwave-backend.up.railway.app/generateOTP", { email })
       .then((res) => {
         if (res.data.status === "success") {
           setTempOTP(res.data.otp);
@@ -70,7 +70,7 @@ export default function ForgotPasswd() {
     } else {
       let password = newPassword;
       axios
-        .post("http://localhost:5000/resetPassword", {email, password })
+        .post("https://sociwave-backend.up.railway.app/resetPassword", {email, password })
         .then((res) => {
           if (res.data.status === "success") {
             setMessage("Password has been changed successfully.");
