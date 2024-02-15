@@ -4,7 +4,7 @@ import Footer from "../../Components/Footer/Footer";
 import FQ from "./FQ.json";
 
 export default function FAQ() {
-  // console.log(FQ.item1.heading);
+
   const data = FQ.data;
 
   return (
