@@ -8,7 +8,6 @@ import Terms from "./Pages/Terms/Terms";
 import FAQ from "./Pages/FAQ/FAQ";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
-import Blogs from "./Pages/Blogs/Blogs";
 import ForgotPasswd from "./Pages/ForgotPasswd/ForgotPasswd";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -25,7 +24,6 @@ function App() {
     axios
       .get("https://sociwave-backend.up.railway.app/global")
       .then((res) => {
-        console.log(res.data.G);
         if (res.data.G.maintinanceMode === "Active") {
           setMaintenance({
             state: false,
@@ -66,7 +64,6 @@ function App() {
           <Route exact path="/faq" element={<FAQ />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/blogs" element={<Blogs />} />
           <Route exact path="/resetPassword" element={<ForgotPasswd />} />
           <Route path="*" element={<Error />} />
         </Routes>

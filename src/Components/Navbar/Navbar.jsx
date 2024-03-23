@@ -31,10 +31,9 @@ export default function Navbar() {
       </div>
       <div className="nav-links">
         <ul id={menuOpen ? "sidemenu" : "sidemenu-closed"} style={sidemenuStyle}>
-        <i class="fa-solid fa-xmark fast" onClick={closeMenu}></i>
+        <i className="fa-solid fa-xmark fast" onClick={closeMenu}></i>
         <div className="innerdiv">
           <li><a href="/about">About Us</a></li>    
-          <li><a href="/blogs">Blogs</a></li>    
           <li><a href="/contact">Contact</a></li>
           <li><a href="/faq">FAQ</a></li>
           <li><a href="/terms">Terms</a></li>
@@ -42,7 +41,7 @@ export default function Navbar() {
         </div>
          
         </ul>
-        <i class="fa-solid fa-bars fast" onClick={openMenu}></i>
+        <i className="fa-solid fa-bars fast" onClick={openMenu}></i>
 
       </div>
 
