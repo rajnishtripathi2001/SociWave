@@ -35,7 +35,7 @@ function Homepage() {
     e.preventDefault();
 
     await axios
-      .post("https://sociwave-backend.up.railway.app/getUser", user)
+      .post("https://Sociwave-backend.up.railway.app/getUser", user)
       .then((res) => {
         if (res.data.status === "success") {
           localStorage.setItem("fname", res.data.user.fname);
@@ -69,7 +69,7 @@ function Homepage() {
         <Navbar />
         <h2 style={{ marginTop: "120px", textAlign: "center" }}>
           Unlock Your Social Media Influence <br />
-          with SociWave
+          with Sociwave
         </h2>
         <MDBContainer fluid className="p-3 mar">
           <MDBRow>
@@ -176,7 +176,7 @@ function Homepage() {
                     aria-expanded="true"
                     aria-controls="collapseOne"
                   >
-                    What services does SociWave offer?
+                    What services does Sociwave offer?
                   </button>
                 </h2>
                 <div
@@ -185,7 +185,7 @@ function Homepage() {
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
-                  SociWave provides a range of social media marketing services,including Instagram likes, comments, followers, as well as YouTube likes, comments, and subscribers.
+                  Sociwave provides a range of social media marketing services,including Instagram likes, comments, followers, as well as YouTube likes, comments, and subscribers.
                   </div>
                 </div>
               </div>

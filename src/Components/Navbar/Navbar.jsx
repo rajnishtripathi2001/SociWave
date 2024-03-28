@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <div className="nav-container">
       <div className="nav-logo">
-        <a href="/">SociWave</a>
+        <a href="/">Sociwave</a>
       </div>
       <div className="nav-links">
         <ul id={menuOpen ? "sidemenu" : "sidemenu-closed"} style={sidemenuStyle}>
