@@ -14,6 +14,7 @@ import Footer from "../../Components/Footer/Footer";
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -283,6 +284,13 @@ export default function Dashboard() {
 
   return (
     <section>
+      <Helmet>
+        <title>Dashboard</title>
+        <meta
+          name="description"
+          content="Sociwave Dashboard. Buy Instagram Likes, Comments, Followers, Youtube Likes, Comments, Subscribers, VCS Packs."
+        />
+      </Helmet>
       {loginStatus ? (
         <>
           <Navbar />

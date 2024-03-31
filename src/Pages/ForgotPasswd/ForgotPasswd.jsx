@@ -3,6 +3,7 @@ import "./ForgotPasswd.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 export default function ForgotPasswd() {
   const Navigate = useNavigate();
@@ -89,6 +90,13 @@ export default function ForgotPasswd() {
 
   return (
     <section>
+      <Helmet>
+        <title>Forgot Password</title>
+        <meta
+          name="description"
+          content="Forgot your password? Reset it here."
+        />
+      </Helmet>
       <Navbar />
       <div className="forgot-password">
         {finalStage ? (

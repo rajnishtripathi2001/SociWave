@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { MDBIcon } from "mdb-react-ui-kit";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 export default function Contact() {
 
@@ -35,6 +36,13 @@ export default function Contact() {
 
   return (
     <div>
+      <Helmet>
+        <title>Contact</title>
+        <meta
+          name="description"
+          content="Contact us for any queries, feedback, or just to say hello."
+        />
+      </Helmet>
       <Navbar />
       <div className="contactPage">
         <div className="inner-contactPage contactPage-upper"></div>

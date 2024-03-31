@@ -17,6 +17,7 @@ import Footer from "../../Components/Footer/Footer";
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 function Homepage() {
   const navigate = useNavigate();
@@ -65,6 +66,13 @@ function Homepage() {
 
   return (
     <>
+      <Helmet>
+        <title>Sociwave</title>
+        <meta
+          name="description"
+          content="Boost your social media presence with Sociwave. We specialize in helping you grow your Instagram accounts and YouTube channels organically. Gain real likes, comments, followers, and subscribers to enhance your online influence. Elevate your social media game with our tailored solutions. Start your journey to social media success today!"
+        />
+      </Helmet>
       <div id="1st">
         <Navbar />
         <h2 style={{ marginTop: "120px", textAlign: "center" }}>
@@ -185,14 +193,18 @@ function Homepage() {
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
-                  Sociwave provides a range of social media marketing services,including Instagram likes, comments, followers, as well as YouTube likes, comments, and subscribers.
+                    Sociwave provides a range of social media marketing
+                    services,including Instagram likes, comments, followers, as
+                    well as YouTube likes, comments, and subscribers.
                   </div>
                 </div>
               </div>
             </div>
           </div>
           {/* on click redirect to faq page */}
-          <button className="home-faq-btn" onClick={() => navigate("/faq")}>More..</button>
+          <button className="home-faq-btn" onClick={() => navigate("/faq")}>
+            More..
+          </button>
         </div>
 
         <Footer />

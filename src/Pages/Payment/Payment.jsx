@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Payment.css";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 export default function Payment() {
   const [upi, setUpi] = useState("");
@@ -22,6 +23,14 @@ export default function Payment() {
   };
 
   return (
+    <div>
+      <Helmet>
+      <title>Payment</title>
+      <meta
+        name="description"
+        content="Add money to your wallet and get started with Sociwave"
+      />
+    </Helmet>
     <div className="wallet">
       <img src="QR.jpeg" alt="qr" />
       <h4>Plese Enter UPI Transction ID</h4>
@@ -35,6 +44,7 @@ export default function Payment() {
       <button onClick={myFunc}>Submit</button>
 
       <p>{msg}</p>
+    </div>
     </div>
   );
 }

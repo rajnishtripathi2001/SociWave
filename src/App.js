@@ -11,6 +11,7 @@ import Contact from "./Pages/Contact/Contact";
 import ForgotPasswd from "./Pages/ForgotPasswd/ForgotPasswd";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 function App() {
   const loginstatus = localStorage.getItem("loginStatus");
@@ -45,6 +46,13 @@ function App() {
     <>
       {maintenance.state ? (
         <div className="maintenanceBox">
+          <Helmet>
+            <title>Under Maintenance</title>
+            <meta
+              name="description"
+              content="Sociwave is under maintenance. We will be back soon."
+            />
+          </Helmet>
           <h2>Under Maintenance</h2>
           <img
             width="94"
@@ -56,7 +64,11 @@ function App() {
         </div>
       ) : (
         <Routes>
-          <Route exact path="/" element={loginstatus ? <Dashboard /> : <Homepage />}/>
+          <Route
+            exact
+            path="/"
+            element={loginstatus ? <Dashboard /> : <Homepage />}
+          />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/register" element={<SignUp />} />
           <Route exact path="/addMoney" element={<Payment />} />

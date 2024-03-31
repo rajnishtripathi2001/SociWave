@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 export default function Signup() {
 
@@ -35,6 +36,13 @@ export default function Signup() {
 
   return (
     <>
+    <Helmet>
+      <title>Sign Up</title>
+      <meta
+        name="description"
+        content="Register to Sociwave and get started with your social media journey."
+      />
+    </Helmet>
       <div className="form-wrapper">
         <header className="register">
           <h2>Register</h2>

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import FQ from "./FQ.json";
+import { Helmet } from "react-helmet";
 
 export default function FAQ() {
 
@@ -9,6 +10,13 @@ export default function FAQ() {
 
   return (
     <div>
+      <Helmet>
+        <title>FAQ</title>
+        <meta
+          name="description"
+          content="Frequently Asked Questions (FAQ) for Sociwave."
+        />
+      </Helmet>
       <Navbar />
       <section style={{ margin: "105px 20px 20px 20px" }}>
         <center>

@@ -2,10 +2,18 @@ import React from "react";
 import "./About.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
+import { Helmet } from "react-helmet";
 
 export default function About() {
   return (
     <section>
+      <Helmet>
+        <title>About Sociwave</title>
+        <meta
+          name="description"
+          content="Learn more about Sociwave and our mission to empower social media users."
+        />
+      </Helmet>
       <Navbar />
       <div className="about">
         <h1>About Sociwave</h1>

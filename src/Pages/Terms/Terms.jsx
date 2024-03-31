@@ -2,10 +2,18 @@ import React from 'react'
 import './Terms.css'
 import Navbar from '../../Components/Navbar/Navbar'
 import Footer from '../../Components/Footer/Footer' 
+import { Helmet } from 'react-helmet'
 
 export default function Terms() {
   return (
     <div>
+      <Helmet>
+        <title>Terms & Conditions | Sociwave</title>
+        <meta
+          name="description"
+          content="Read the terms and conditions of Sociwave before using our services."
+        />
+      </Helmet>
         <Navbar/>
         <section className='term'>
             <center><h2><span>Terms & Conditions for Sociwave</span></h2></center>
